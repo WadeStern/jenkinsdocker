@@ -1,4 +1,5 @@
 pipeline {
+  
   agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -9,7 +10,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t lloydmatereke/jenkins-docker-hub .'
+        sh 'docker build -t dudesm00thie/jenkins-docker-hub .'
       }
     }
     stage('Login') {
@@ -19,7 +20,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push lloydmatereke/jenkins-docker-hub'
+        sh 'docker push dudesm00thie/jenkins-docker-hub'
       }
     }
   }
